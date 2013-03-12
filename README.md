@@ -66,5 +66,11 @@ Check the official Ouya-Doc before you use it, so you know what happens behind t
 
 This target is experimental. It would probably be better to use the new Gamepad-Commands instead of a Gamecontroller-to-Key-Mapping, but for now it works - and I quite like it that I don't have to alter my code if I already use Cursor-Key-Controls.
 
+
+### License
+
+    This is public domain.
+    No warranty implied; use at your own risk.
+    
 [Monkey]: http://www.monkeycoder.co.nz/
 [Ouya]: http://www.ouya.tv
