@@ -35,13 +35,13 @@ Add the following import to it (/Applications/Moneky/src/transcc/builders/builde
 
     builders.Set "ouya",New OuyaBuilder( tcc )
 
-### Compile transcc and replace the original Monkey trans file:
+### Compile transcc and replace the original Monkey trans bianry:
 
     cd /Applications/Monkey/src/transcc
-    rm -rf transcc.build
+    [ -d transcc.build ] && rm -rf transcc.build
     /Applications/Monkey/bin/transcc_macos -config=release -target=C++_Tool -build transcc.monkey
+    cp /Applications/Monkey/bin/transcc_macos /Applications/Monkey/bin/transcc_macos_backup
     cp ./transcc.build/cpptool/main_macos /Applications/Monkey/bin/transcc_macos
-    /Applications/Monkey/bin/transcc_macos
 
 ### Check if everthing was successful. 
 
