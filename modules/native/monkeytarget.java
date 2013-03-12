@@ -144,7 +144,7 @@ class OuyaPayment {
 
     public boolean initialized = false;
 
-    public void Init(String developerId, String applicationKeyPath, String[] productIds) {
+    public void Init(String developerId, String applicationKeyPath, String[] productIds, boolean testMode) {
         this.developerId = developerId;
         this.applicationKey = MonkeyGame.instance._game.LoadData(bb_data.g_FixDataPath(applicationKeyPath));
 
@@ -159,7 +159,11 @@ class OuyaPayment {
         }
 
         initOuyaFacade();
-        setTestMode();
+
+        if (testMode) {
+            setTestMode();
+        }
+
         initPublicKey();
 
         initialized = true;

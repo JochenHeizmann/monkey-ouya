@@ -14,10 +14,10 @@ class PaymentWrapper
 {
     public OuyaPayment ouyaPayment;
 
-    public void Init(String developerId, String applicationKeyPath, String[] productIds)
+    public void Init(String developerId, String applicationKeyPath, String[] productIds, boolean testMode)
     {
         ouyaPayment = MonkeyGame.instance.ouyaPayment;
-        ouyaPayment.Init(developerId, applicationKeyPath, productIds);
+        ouyaPayment.Init(developerId, applicationKeyPath, productIds, testMode);
     }
 
     public void Purchase(String productId) {
