@@ -8,12 +8,14 @@ It's based on the ODK Version 1.0 and Monkey v68. (it does NOT work with older v
 
 ## Install
 
-1. Clone this repo into the Monkey targets directory
+### Clone this repo into the Monkey targets directory
 
     cd /Applications/Monkey/targets
     git clone https://github.com/JochenHeizmann/monkey-ouya.git ./ouya
 
-2. Create a new builder. Create a new file "ouya.monkey" in the Monkey trans builders directory (/Applications/Monkey/src/transcc/builders) with the following content:
+### Create a new builder. 
+
+Create a new file "ouya.monkey" in the Monkey trans builders directory (/Applications/Monkey/src/transcc/builders) with the following content:
 
     Import android
 
@@ -23,15 +25,17 @@ It's based on the ODK Version 1.0 and Monkey v68. (it does NOT work with older v
         End
     End
 
-3. Add the new builder. Add the following import to it (/Applications/Moneky/src/transcc/builders/builders.monkey)
+### Add the new builder. 
+
+Add the following import to it (/Applications/Moneky/src/transcc/builders/builders.monkey)
 
     Import ouya
 
-4. Also add a instance of it to the Builder-Map:
+### Also add a instance of it to the Builder-Map:
 
     builders.Set "ouya",New OuyaBuilder( tcc )
 
-5. Compile transcc and replace the original Monkey trans file:
+### Compile transcc and replace the original Monkey trans file:
 
     cd /Applications/Monkey/src/transcc
     rm -rf transcc.build
@@ -39,10 +43,12 @@ It's based on the ODK Version 1.0 and Monkey v68. (it does NOT work with older v
     cp ./transcc.build/cpptool/main_macos /Applications/Monkey/bin/transcc_macos
     /Applications/Monkey/bin/transcc_macos
 
-6. Check if everthing was successful. If you call transcc without parameters OuyaGame should appear as target:
+### Check if everthing was successful. 
+
+If you call transcc without parameters OuyaGame should appear as target:
 
     /Applications/Monkey/bin/transcc_macos
-    # output: Valid targets: Android_Game C++_Tool Glfw_Game Html5_Game Ouya_Game iOS_Game
+    (output: Valid targets: Android_Game C++_Tool Glfw_Game Html5_Game Ouya_Game iOS_Game)
 
 ## The Ouya-Controller
 
