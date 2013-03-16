@@ -295,10 +295,8 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
                     break;                    
 
                 case OuyaController.BUTTON_MENU:
-                    /*
-                    sendKey = 27;   // KEY_ESCAPE
+                    sendKey = 36;   // KEY_HOME
                     handled = true;
-                    */
                     break;                    
             }
 
@@ -387,10 +385,8 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
                     break;                    
  
                 case OuyaController.BUTTON_MENU:
-                    /*
-                    sendKey = 27;   // KEY_ESCAPE
+                    sendKey = 36;   // KEY_HOME
                     handled = true;
-                    */
                     break;                    
             }
  
