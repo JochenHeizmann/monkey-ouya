@@ -244,7 +244,7 @@ class OuyaPayment {
     }
 
     public void onDestroy() {
-        ouyaFacade.shutdown();
+        //ouyaFacade.shutdown(); //why is this being called twice?
     }
 
     public void requestProducts() {
