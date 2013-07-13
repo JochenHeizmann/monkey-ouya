@@ -11,7 +11,7 @@
 #ANDROID_APP_LABEL="Monkey Game"
 #ANDROID_APP_PACKAGE="com.monkey"
 #ANDROID_SCREEN_ORIENTATION="user"					'"user", "portrait", "landscape"
-#ANDROID_GAMEPAD_ENABLED=False
+#ANDROID_GAMEPAD_ENABLED=True 'true
 
 #OPENGL_GLES20_ENABLED=False
 

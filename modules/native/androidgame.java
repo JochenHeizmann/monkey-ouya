@@ -155,7 +155,7 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 		Method _getSource,_getAxisValue;
 
 		void init(){
-		
+
 			//get multi-touch methods
 			try{
 				Class cls=Class.forName( "android.view.MotionEvent" );
@@ -527,7 +527,7 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 			try{
 				int source=((Integer)_getSource.invoke( event )).intValue();
 
-				if( (source&16)==0 ) return false;
+				if( (source&InputDevice.SOURCE_CLASS_JOYSTICK)==0 ) return false; //16
 			
 				BBAndroidGame g=_androidGame;
 			
@@ -853,7 +853,7 @@ class AndroidGame extends Activity{
     @Override
     protected void onDestroy() {
         Log.i( "[Monkey]",new String("Activity->OnDestroy()") );
-        ouyaFacade.shutdown();
+        if ( ouyaFacade != null ) ouyaFacade.shutdown();
         super.onDestroy();
     }
 
