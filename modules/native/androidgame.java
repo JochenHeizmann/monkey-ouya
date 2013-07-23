@@ -47,10 +47,22 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 	
 	boolean _canRender;
 	
-	float[] _joyx=new float[2];
-	float[] _joyy=new float[2];
-	float[] _joyz=new float[2];
-	boolean[] _buttons=new boolean[32];
+	float[] _joyx0=new float[2];
+	float[] _joyy0=new float[2];
+	float[] _joyz0=new float[2];
+	boolean[] _buttons0=new boolean[32];
+	float[] _joyx1=new float[2];
+	float[] _joyy1=new float[2];
+	float[] _joyz1=new float[2];
+	boolean[] _buttons1=new boolean[32];
+	float[] _joyx2=new float[2];
+	float[] _joyy2=new float[2];
+	float[] _joyz2=new float[2];
+	boolean[] _buttons2=new boolean[32];
+	float[] _joyx3=new float[2];
+	float[] _joyy3=new float[2];
+	float[] _joyz3=new float[2];
+	boolean[] _buttons3=new boolean[32];
 	
 	public BBAndroidGame( Activity activity,GameView view ){
 		_androidGame=this;
@@ -210,7 +222,12 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 				case 108:button=7;break;	//START
 				}
 				if( button!=-1 ){
-					_androidGame._buttons[button]=(event.getAction()==KeyEvent.ACTION_DOWN);
+                    switch( OuyaController.getPlayerNumByDeviceId(event.getDeviceId()) ){
+                        case 0: _androidGame._buttons0[button]=(event.getAction()==KeyEvent.ACTION_DOWN);break;
+                        case 1: _androidGame._buttons1[button]=(event.getAction()==KeyEvent.ACTION_DOWN);break;
+                        case 2: _androidGame._buttons2[button]=(event.getAction()==KeyEvent.ACTION_DOWN);break;
+                        case 3: _androidGame._buttons3[button]=(event.getAction()==KeyEvent.ACTION_DOWN);break;
+                    }
 					return true;
 				}
 			}
@@ -531,14 +548,45 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 			
 				BBAndroidGame g=_androidGame;
 			
-				args1[0]=Integer.valueOf( 0  );g._joyx[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				args1[0]=Integer.valueOf( 1  );g._joyy[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				args1[0]=Integer.valueOf( 17 );g._joyz[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				
-				args1[0]=Integer.valueOf( 11 );g._joyx[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				args1[0]=Integer.valueOf( 14 );g._joyy[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				args1[0]=Integer.valueOf( 18 );g._joyz[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
-				
+                switch( OuyaController.getPlayerNumByDeviceId(event.getDeviceId()) ){
+                    case 0:
+                        args1[0]=Integer.valueOf( 0  );g._joyx0[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 1  );g._joyy0[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 17 );g._joyz0[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        
+                        args1[0]=Integer.valueOf( 11 );g._joyx0[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 14 );g._joyy0[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 18 );g._joyz0[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        break;
+                    case 1:
+                        args1[0]=Integer.valueOf( 0  );g._joyx1[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 1  );g._joyy1[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 17 );g._joyz1[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        
+                        args1[0]=Integer.valueOf( 11 );g._joyx1[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 14 );g._joyy1[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 18 );g._joyz1[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        break;
+                    case 2:
+                        args1[0]=Integer.valueOf( 0  );g._joyx2[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 1  );g._joyy2[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 17 );g._joyz2[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        
+                        args1[0]=Integer.valueOf( 11 );g._joyx2[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 14 );g._joyy2[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 18 );g._joyz2[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        break;
+                    case 3:
+                        args1[0]=Integer.valueOf( 0  );g._joyx3[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 1  );g._joyy3[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 17 );g._joyz3[0]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        
+                        args1[0]=Integer.valueOf( 11 );g._joyx3[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 14 );g._joyy3[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        args1[0]=Integer.valueOf( 18 );g._joyz3[1]=((Float)_getAxisValue.invoke( event,args1 )).floatValue();
+                        break;
+				}
+                
 				return true;
 				
 			}catch( Exception ex ){
@@ -583,10 +631,25 @@ class BBAndroidGame extends BBGame implements GLSurfaceView.Renderer,SensorEvent
 	}
 	
 	public boolean PollJoystick( int port,float[] joyx,float[] joyy,float[] joyz,boolean[] buttons ){
-		if( port!=0 ) return false;
-		joyx[0]=_joyx[0];joyy[0]=_joyy[0];joyz[0]=_joyz[0];
-		joyx[1]=_joyx[1];joyy[1]=_joyy[1];joyz[1]=_joyz[1];
-		for( int i=0;i<32;++i ) buttons[i]=_buttons[i];
+		if( port>3 ) return false;
+        switch( port ){
+            case 0:
+                joyx[0]=_joyx0[0];joyy[0]=_joyy0[0];joyz[0]=_joyz0[0];
+                joyx[1]=_joyx0[1];joyy[1]=_joyy0[1];joyz[1]=_joyz0[1];
+                for( int i=0;i<32;++i ) buttons[i]=_buttons0[i];break;
+            case 1:
+                joyx[0]=_joyx1[0];joyy[0]=_joyy1[0];joyz[0]=_joyz1[0];
+                joyx[1]=_joyx1[1];joyy[1]=_joyy1[1];joyz[1]=_joyz1[1];
+                for( int i=0;i<32;++i ) buttons[i]=_buttons1[i];break;
+            case 2:
+                joyx[0]=_joyx2[0];joyy[0]=_joyy2[0];joyz[0]=_joyz2[0];
+                joyx[1]=_joyx2[1];joyy[1]=_joyy2[1];joyz[1]=_joyz2[1];
+                for( int i=0;i<32;++i ) buttons[i]=_buttons2[i];break;
+            case 3:
+                joyx[0]=_joyx3[0];joyy[0]=_joyy3[0];joyz[0]=_joyz3[0];
+                joyx[1]=_joyx3[1];joyy[1]=_joyy3[1];joyz[1]=_joyz3[1];
+                for( int i=0;i<32;++i ) buttons[i]=_buttons3[i];break;
+        }
 		return true;
 	}
 	
