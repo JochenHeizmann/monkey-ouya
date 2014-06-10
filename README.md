@@ -1,5 +1,9 @@
 # Ouya-Target for [Monkey][]
 
+## NOTE
+
+I won't update this repo anymore. It was created when the [Monkey][]-Language hadn't support for OUYA. Nowadays Monkey supports OUYA out of the box. :-)
+
 ## What's this?
 
 This is an [Ouya][]-Target for the [Monkey][]-Language. 
